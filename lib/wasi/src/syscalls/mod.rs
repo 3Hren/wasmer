@@ -1461,7 +1461,7 @@ pub fn path_open(
             // load it; possibly creating or truncating it if flags set
             let real_opened_file = {
                 let mut open_options = std::fs::OpenOptions::new();
-                let open_options = open_options.read(true).write(true);
+                let open_options = open_options.read(true); //.write(true);
                 let open_options = if o_flags & __WASI_O_CREAT != 0 {
                     debug!(
                         "File {} may be created when opened if it does not exist",
